@@ -1,6 +1,7 @@
 package com.tungty.tungtyservice.controller
 
 import com.tungty.tungtyservice.service.TestService
+import com.tungty.tungtyservice.service.addService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -14,6 +15,9 @@ class testController {
     @Autowired
     lateinit var testService: TestService
 
+    @Autowired
+    lateinit var addService: addService
+
     @GetMapping("say")
     fun say(): String{
         return testService.testSay()
@@ -22,5 +26,10 @@ class testController {
     @GetMapping("say/{someting}")
     fun saySometimg(@PathVariable("someting") word: String): String{
         return testService.testSaySometing(word)
+    }
+
+    @GetMapping("add/{number}")
+    fun addNumber(@PathVariable("number") number: Int): String{
+        return addService.addNumber(number)
     }
 }
