@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "080e2ad5-6008-451c-bd31-5f7ae36980c9",
+		"name": "Chat-TungTy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29606064",
+		"_collection_link": "https://dark-firefly-60262.postman.co/workspace/New-Team-Workspace~e1ffdf80-4d60-4e4d-ab9f-aa8c310b886b/collection/29606064-080e2ad5-6008-451c-bd31-5f7ae36980c9?action=share&source=collection_link&creator=29606064"
+	},
+	"item": [
+		{
+			"name": "deployment",
+			"item": [
+				{
+					"name": "/chat/getAllChat/{userId}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://tungty-service-be.onrender.com/chat/getAllChat/c9a46ef5-3cc6-49a7-b84c-824e3d6822f5",
+							"protocol": "https",
+							"host": [
+								"tungty-service-be",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"chat",
+								"getAllChat",
+								"c9a46ef5-3cc6-49a7-b84c-824e3d6822f5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/chat/getAllMessage/{partyId} Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://tungty-service-be.onrender.com/chat/getAllMessage/c9a46ef5-3cc6-49a7-b84c-824e3d6822f5",
+							"protocol": "https",
+							"host": [
+								"tungty-service-be",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"chat",
+								"getAllMessage",
+								"c9a46ef5-3cc6-49a7-b84c-824e3d6822f5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/chat/createMessage Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\": \"test Add tt\",\r\n    \"partyId\": \"t4\",\r\n    \"userId\": \"ut4\",\r\n    \"appointmentDate\": \"2131423423412\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://tungty-service-be.onrender.com/chat/createMessage",
+							"protocol": "https",
+							"host": [
+								"tungty-service-be",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"chat",
+								"createMessage"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/chat/getAllChat/{userId}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/chat/getAllChat/c9a46ef5-3cc6-49a7-b84c-824e3d6822f5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"chat",
+						"getAllChat",
+						"c9a46ef5-3cc6-49a7-b84c-824e3d6822f5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/chat/getAllMessage/{partyId}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/chat/getAllMessage/t4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"chat",
+						"getAllMessage",
+						"t4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/chat/createMessage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\": \"test Add tt\",\r\n    \"partyId\": \"t4\",\r\n    \"userId\": \"ut4\",\r\n    \"appointmentDate\": \"2131423423412\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/chat/createMessage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"chat",
+						"createMessage"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
