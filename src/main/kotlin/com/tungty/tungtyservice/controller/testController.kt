@@ -36,9 +36,9 @@ class testController {
         return addService.addNumber(number)
     }
 
-    @GetMapping("messages")
-    fun findAllMessage(): Flux<MessageEntity> {
-        return chatService.findAllMessage()
-    }
+//    @GetMapping("messages")
+//    fun findAllMessage(): Flux<MessageEntity> {
+//        return chatService.findAllMessage()
+//    }
 
 }
