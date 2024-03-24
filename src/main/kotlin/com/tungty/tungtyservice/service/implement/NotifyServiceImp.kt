@@ -50,7 +50,7 @@ class NotifyServiceImp: NotifyService {
     }
 
     override fun findAllByUserIdNotify(userId: String): Flux<NotifyEntity> {
-        return  notifyRepository.findAllByUserId(userId).filter { noti -> noti.status != "Pending" }
+        return  notifyRepository.findAllByUserId(userId)
     }
 
     override fun updateStatus(notifyId: String, status: String): String {
