@@ -1,4 +1,4 @@
-package com.tungty.tungtyservice.DTO
+package com.tungty.tungtyservice.DTO.notify
 
 import com.tungty.tungtyservice.DTO.party.PartyDTO
 
