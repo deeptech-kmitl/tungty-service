@@ -45,6 +45,7 @@ class UserServiceImp : userService {
                     faculty = reqRegisterDTO.faculty,
                     field = reqRegisterDTO.field,
                     year = reqRegisterDTO.year,
+                    aboutMe = null,
                     profileImg = reqRegisterDTO.profileImg,
                     createDateTime = current.toString(),
                     updateDateTime = current.toString()
@@ -89,6 +90,7 @@ class UserServiceImp : userService {
                 existingUser.faculty = reqEditProfileDTO.faculty
                 existingUser.field = reqEditProfileDTO.field
                 existingUser.year = reqEditProfileDTO.year
+                existingUser.aboutMe = reqEditProfileDTO.aboutMe
                 existingUser.profileImg = reqEditProfileDTO.profileImg
                 existingUser.updateDateTime = current.toString()
 

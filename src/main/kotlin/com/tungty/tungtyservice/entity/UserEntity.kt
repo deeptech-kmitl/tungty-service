@@ -20,6 +20,7 @@ data class UserEntity(
         var faculty: String,
         var field: String,
         var year: Int,
+        var aboutMe: String?,
         var profileImg: String,
         val createDateTime: String,
         var updateDateTime: String
