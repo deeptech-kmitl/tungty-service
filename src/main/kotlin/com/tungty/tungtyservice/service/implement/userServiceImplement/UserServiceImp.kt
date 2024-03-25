@@ -1,4 +1,5 @@
 package com.tungty.tungtyservice.service.implement.userServiceImplement
+
 import com.tungty.tungtyservice.DTO.ReqEditProfileDTO
 import com.tungty.tungtyservice.DTO.ReqRegisterDTO
 import com.tungty.tungtyservice.entity.UserEntity
@@ -20,13 +21,14 @@ import java.time.format.DateTimeFormatter
 class UserServiceImp : userService {
 
     @Autowired
-    lateinit var userRepository : UserRepository
+    lateinit var userRepository: UserRepository
     lateinit var encoder: HashService
 
     @PostConstruct
     private fun init() {
         encoder = HashService() // Initialize the encoder here
     }
+
     override fun createUser(reqRegisterDTO: ReqRegisterDTO): String {
         try {
             val id = UUID.randomUUID().toString()
@@ -52,16 +54,17 @@ class UserServiceImp : userService {
             )
             val result = userRepository.save(user)
 
-            return result.block()?.toString() ?: "fail"
+            return result.block().toString() // ส่งผลลัพธ์การบันทึกเป็น String
 
-        } catch (error : Exception) {
-            return error.toString()
+        } catch (error: Exception) {
+            return "Error: ${error.message}" // ส่งข้อความผิดพลาดในรูปแบบ String
         }
     }
 
     override fun findUserById(userId: String): Mono<UserEntity?> {
         return userRepository.findById(userId)
     }
+
     override fun findUserByUsername(username: String): Mono<UserEntity> {
         return userRepository.findByUsername(username)
     }

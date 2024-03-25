@@ -87,7 +87,11 @@ class UserController {
     @PostMapping("register")
     fun createUser(@RequestBody reqRegisterDTO: ReqRegisterDTO): ResponseEntity<ResponseRegisterDTO> {
         val result = userServiceImp.createUser(reqRegisterDTO)
-        return ResponseEntity(ResponseRegisterDTO(errorMessage = result), HttpStatus.OK)
+        return if (result.startsWith("Error")) {
+            ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ResponseRegisterDTO(errorMessage = result))
+        } else {
+            ResponseEntity.ok(ResponseRegisterDTO())
+        }
     }
 
     @PutMapping("edit_profile")
