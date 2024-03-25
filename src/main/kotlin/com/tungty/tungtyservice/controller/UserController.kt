@@ -26,7 +26,7 @@ class UserController {
     lateinit var userServiceImp: UserServiceImp
 
     @GetMapping("/{id}")
-    fun findUserById(@PathVariable id: String) : ResponseEntity<ResponseGetMyProfileDTO> {
+    fun findUserById(@PathVariable id: String): ResponseEntity<ResponseGetMyProfileDTO> {
         val userMono = userServiceImp.findUserById(id)
         val userEntity = userMono.block()
         return if (userEntity != null) {
@@ -37,7 +37,8 @@ class UserController {
                     surname = userEntity.surname,
                     faculty = userEntity.faculty,
                     field = userEntity.field,
-                    year = userEntity.year.toString()
+                    year = userEntity.year.toString(),
+                    aboutMe = userEntity.aboutMe
             )
             ResponseEntity(responseDTO, HttpStatus.OK)
         } else {
@@ -46,7 +47,7 @@ class UserController {
     }
 
     @GetMapping("/username/{username}")
-    fun findUserByUsername(@PathVariable username: String) : ResponseEntity<ResponseGetMyProfileDTO> {
+    fun findUserByUsername(@PathVariable username: String): ResponseEntity<ResponseGetMyProfileDTO> {
         val userMono = userServiceImp.findUserByUsername(username)
         val userEntity = userMono.block()
         return if (userEntity != null) {
@@ -57,7 +58,8 @@ class UserController {
                     surname = userEntity.surname,
                     faculty = userEntity.faculty,
                     field = userEntity.field,
-                    year = userEntity.year.toString()
+                    year = userEntity.year.toString(),
+                    aboutMe = userEntity.aboutMe
             )
             ResponseEntity(responseDTO, HttpStatus.OK)
         } else {
@@ -66,27 +68,32 @@ class UserController {
     }
 
     @GetMapping
-    fun getAllUsers(authentication: Authentication) : ResponseEntity<Flux<ResponseGetMyProfileDTO>> {
+    fun getAllUsers(authentication: Authentication): ResponseEntity<Flux<ResponseGetMyProfileDTO>> {
         println("Get all user.")
         val authUser = authentication.toUser()
         val users = userServiceImp.getAllUsers()
-                .map { user -> ResponseGetMyProfileDTO(
-                        user.userId,
-                        user.username,
-                        user.name,
-                        user.surname,
-                        user.faculty,
-                        user.field,
-                        user.year.toString()) }
+                .map { user ->
+                    ResponseGetMyProfileDTO(
+                            user.userId,
+                            user.username,
+                            user.name,
+                            user.surname,
+                            user.faculty,
+                            user.field,
+                            user.year.toString(),
+                            user.aboutMe)
+                }
         return ResponseEntity(users, HttpStatus.OK)
     }
+
     @PostMapping("register")
     fun createUser(@RequestBody reqRegisterDTO: ReqRegisterDTO): ResponseEntity<ResponseRegisterDTO> {
         val result = userServiceImp.createUser(reqRegisterDTO)
         return ResponseEntity(ResponseRegisterDTO(errorMessage = result), HttpStatus.OK)
     }
+
     @PutMapping("edit_profile")
-    fun editProfile(@RequestBody reqEditProfileDTO: ReqEditProfileDTO) : String{
+    fun editProfile(@RequestBody reqEditProfileDTO: ReqEditProfileDTO): String {
         println("Edit Profile By" + reqEditProfileDTO.userId)
         return userServiceImp.editUsers(reqEditProfileDTO)
     }

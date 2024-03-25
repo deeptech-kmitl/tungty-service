@@ -8,5 +8,6 @@ data class ResponseGetMyProfileDTO(
     var surname: String,
     var faculty: String,
     var field: String,
-    var year: String
+    var year: String,
+    var aboutMe: String?,
 )
