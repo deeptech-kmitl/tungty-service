@@ -1,7 +1,6 @@
 package com.tungty.tungtyservice.controller
 
 import com.tungty.tungtyservice.DTO.*
-import com.tungty.tungtyservice.config.toUser
 import com.tungty.tungtyservice.service.implement.userServiceImplement.UserServiceImp
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -70,7 +69,6 @@ class UserController {
     @GetMapping
     fun getAllUsers(authentication: Authentication): ResponseEntity<Flux<ResponseGetMyProfileDTO>> {
         println("Get all user.")
-        val authUser = authentication.toUser()
         val users = userServiceImp.getAllUsers()
                 .map { user ->
                     ResponseGetMyProfileDTO(
