@@ -26,7 +26,8 @@ class AuthController(
         }
         return ResponseLoginDTO(
                 accessToken = tokenService.createToken(user),
-                userId = user.userId
+                userId = user.userId,
+                username = user.username
         )
     }
 }
