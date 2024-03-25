@@ -4,6 +4,7 @@ package com.tungty.tungtyservice.DTO
 data class ResponseGetMyProfileDTO(
     var userId: String,
     var username: String,
+    var studentId: String,
     var name: String,
     var surname: String,
     var faculty: String,

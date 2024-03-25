@@ -32,6 +32,7 @@ class UserController {
             val responseDTO = ResponseGetMyProfileDTO(
                     userId = userEntity.userId,
                     username = userEntity.username,
+                    studentId = userEntity.studentId,
                     name = userEntity.name,
                     surname = userEntity.surname,
                     faculty = userEntity.faculty,
@@ -53,6 +54,7 @@ class UserController {
             val responseDTO = ResponseGetMyProfileDTO(
                     userId = userEntity.userId,
                     username = userEntity.username,
+                    studentId = userEntity.studentId,
                     name = userEntity.name,
                     surname = userEntity.surname,
                     faculty = userEntity.faculty,
@@ -74,6 +76,7 @@ class UserController {
                     ResponseGetMyProfileDTO(
                             user.userId,
                             user.username,
+                            user.studentId,
                             user.name,
                             user.surname,
                             user.faculty,
