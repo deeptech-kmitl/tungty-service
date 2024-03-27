@@ -11,7 +11,7 @@ data class PartyDTO (
     val appointmentDate: String, // Assuming date as string for simplicity
     val appointmentTime: String,
     val memberAmount: Int,
-    val memberList: List<String>,
+    val memberList: List<String>, // memberlist now changed to username
     val createDateTime: String, // Assuming date as string for simplicity
     val updateDateTime: String // Assuming date as string for simplicity
 )
