@@ -11,4 +11,5 @@ data class ResponseGetMyProfileDTO(
     var field: String,
     var year: String,
     var aboutMe: String?,
+    var profileImg: String
 )
