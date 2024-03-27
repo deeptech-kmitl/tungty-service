@@ -4,5 +4,7 @@ data class ReqMessageDTO (
     val message: String,
     val partyId: String,
     val userId: String,
-    val appointmentDate: String
+    val appointmentDate: String,
+    val username: String,
+    val profileImg: String
 )

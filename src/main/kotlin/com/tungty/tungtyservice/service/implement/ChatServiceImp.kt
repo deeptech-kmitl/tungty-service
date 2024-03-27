@@ -9,8 +9,6 @@ import com.tungty.tungtyservice.service.ChatService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 @Service
@@ -40,8 +38,10 @@ class ChatServiceImp: ChatService {
                 _id = UUID.randomUUID().toString(),  // Generate new ID
                 partyId = message.partyId,
                 userId = message.userId,
-                content = message.message,
-                createDate = message.appointmentDate  // Ensure type compatibility
+                message = message.message,
+                appointmentDate = message.appointmentDate,
+                username = message.username,
+                profileImg = message.profileImg
             )
             System.out.println(addData)
 //            val partyId: String,
