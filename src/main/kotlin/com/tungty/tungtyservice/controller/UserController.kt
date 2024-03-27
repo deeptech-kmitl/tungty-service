@@ -38,7 +38,8 @@ class UserController {
                     faculty = userEntity.faculty,
                     field = userEntity.field,
                     year = userEntity.year.toString(),
-                    aboutMe = userEntity.aboutMe
+                    aboutMe = userEntity.aboutMe,
+                    profileImg = userEntity.profileImg
             )
             ResponseEntity(responseDTO, HttpStatus.OK)
         } else {
@@ -60,7 +61,8 @@ class UserController {
                     faculty = userEntity.faculty,
                     field = userEntity.field,
                     year = userEntity.year.toString(),
-                    aboutMe = userEntity.aboutMe
+                    aboutMe = userEntity.aboutMe,
+                    profileImg = userEntity.profileImg
             )
             ResponseEntity(responseDTO, HttpStatus.OK)
         } else {
@@ -82,7 +84,8 @@ class UserController {
                             user.faculty,
                             user.field,
                             user.year.toString(),
-                            user.aboutMe)
+                            user.aboutMe,
+                            user.profileImg)
                 }
         return ResponseEntity(users, HttpStatus.OK)
     }
