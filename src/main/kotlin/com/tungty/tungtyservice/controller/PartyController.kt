@@ -14,7 +14,7 @@ import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 
 @RestController
-@CrossOrigin(origins = ["http://192.168.1.107:8081/"])
+//@CrossOrigin(origins = ["http://192.168.1.107:8081/"])
 @RequestMapping("/party")
 class PartyController {
 
