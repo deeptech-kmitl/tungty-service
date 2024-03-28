@@ -1,6 +1,7 @@
 package com.tungty.tungtyservice.controller
 
 import com.tungty.tungtyservice.DTO.chat.ReqMessageDTO
+import com.tungty.tungtyservice.DTO.chat.ResponseFindProfileImgDTO
 import com.tungty.tungtyservice.DTO.party.PartyDTO
 import com.tungty.tungtyservice.entity.MessageEntity
 import com.tungty.tungtyservice.entity.PartyEntity
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Flux
+import java.util.ArrayList
 
 @RestController
 @RequestMapping("/chat")
@@ -35,5 +37,10 @@ class ChatController {
     @PostMapping("/createMessage")
     fun addMessage(@RequestBody body: ReqMessageDTO): String{
         return chatService.addMessage(body)
+    }
+
+    @PostMapping("/getProfileImage")
+    fun findUserImages(@RequestBody body: ArrayList<String>): ArrayList<ResponseFindProfileImgDTO>{
+        return chatService.findProfileImges(body)
     }
 }
