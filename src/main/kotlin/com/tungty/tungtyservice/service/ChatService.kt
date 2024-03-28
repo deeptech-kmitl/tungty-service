@@ -1,6 +1,5 @@
 package com.tungty.tungtyservice.service
 
-import com.tungty.tungtyservice.DTO.chat.ReqMemberListDTO
 import com.tungty.tungtyservice.DTO.chat.ReqMessageDTO
 import com.tungty.tungtyservice.DTO.chat.ResponseFindProfileImgDTO
 import com.tungty.tungtyservice.entity.MessageEntity
