@@ -1,10 +1,13 @@
 package com.tungty.tungtyservice.service.implement
 
+import com.tungty.tungtyservice.DTO.chat.ReqMemberListDTO
 import com.tungty.tungtyservice.DTO.chat.ReqMessageDTO
+import com.tungty.tungtyservice.DTO.chat.ResponseFindProfileImgDTO
 import com.tungty.tungtyservice.entity.MessageEntity
 import com.tungty.tungtyservice.entity.PartyEntity
 import com.tungty.tungtyservice.repository.MessageRepository
 import com.tungty.tungtyservice.repository.party.PartyRepository
+import com.tungty.tungtyservice.repository.user.UserRepository
 import com.tungty.tungtyservice.service.ChatService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -18,6 +21,9 @@ class ChatServiceImp: ChatService {
 
     @Autowired
     lateinit var partyRepository: PartyRepository
+
+    @Autowired
+    lateinit var userRepository: UserRepository
     override fun findAllChatByUserId(userId :String): Flux<PartyEntity> {
         try {
             val allParty = partyRepository.findAll().filter({
@@ -65,5 +71,20 @@ class ChatServiceImp: ChatService {
         }
     }
 
+    override fun findProfileImges(memberList: ArrayList<String>): ArrayList<ResponseFindProfileImgDTO> {
+        try{
+            val datalist = ArrayList<ResponseFindProfileImgDTO>()
+            for (i in memberList){
+                val setdata = ResponseFindProfileImgDTO(
+                    username = i,
+                    profileImg = userRepository.findByUsername(i)?.block()!!.profileImg
+                )
+                datalist.add(setdata)
+            }
+            return datalist
+        }catch (e: Exception){
+            throw e
+        }
+    }
 
 }
