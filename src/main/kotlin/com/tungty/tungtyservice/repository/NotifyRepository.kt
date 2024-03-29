@@ -11,5 +11,6 @@ interface NotifyRepository: ReactiveMongoRepository<NotifyEntity, String> {
     @Query("{'userId' :  ?0}")
     fun findAllByUserId(userId: String): Flux<NotifyEntity>
 
-
+    @Query("{'partyId' :  ?0}")
+    fun findAllByPartyId(partyId: String): Flux<NotifyEntity>
 }

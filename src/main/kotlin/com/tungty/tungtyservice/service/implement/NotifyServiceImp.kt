@@ -66,8 +66,16 @@ class NotifyServiceImp: NotifyService {
 
     override fun deleteNotify(notifyId: String): String {
         try {
-            val result = notifyRepository.deleteById(notifyId)
-            return result.toString()
+            val datalist = notifyRepository.findAllByPartyId(notifyId)
+            datalist.subscribe(
+                {data -> System.out.println(data)}
+            )
+            val data = datalist.collectList().block()!!
+            System.out.println(data)
+            for (entity in data){
+                notifyRepository.delete(entity)
+            }
+            return data.toString()
         }catch (e: Exception){
             return e.toString()
         }
