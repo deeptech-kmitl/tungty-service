@@ -21,7 +21,7 @@ class TokenService(
         val jwsHeader = JwsHeader.with { "HS256" }.build()
         val claims = JwtClaimsSet.builder()
                 .issuedAt(Instant.now())
-                .expiresAt(Instant.now().plus(30L, ChronoUnit.DAYS))
+                .expiresAt(Instant.now().plus(180L, ChronoUnit.DAYS))
                 .subject(user.username)
                 .claim("userId", user.userId)
                 .build()
