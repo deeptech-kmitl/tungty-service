@@ -8,6 +8,6 @@ data class ReqRegisterDTO (
     val studentId: String,
     val faculty: String,
     val field: String,
-    val year: Int,
+    val year: String,
     val profileImg: String,
     )

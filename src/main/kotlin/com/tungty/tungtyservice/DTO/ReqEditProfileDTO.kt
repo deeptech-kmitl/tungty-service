@@ -8,7 +8,7 @@ data class ReqEditProfileDTO (
         var studentId: String,
         var faculty: String,
         var field: String,
-        var year: Int,
+        var year: String,
         var aboutMe: String?,
         var profileImg: String
         )

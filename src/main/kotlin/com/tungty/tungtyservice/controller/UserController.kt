@@ -37,7 +37,7 @@ class UserController {
                     surname = userEntity.surname,
                     faculty = userEntity.faculty,
                     field = userEntity.field,
-                    year = userEntity.year.toString(),
+                    year = userEntity.year,
                     aboutMe = userEntity.aboutMe,
                     profileImg = userEntity.profileImg
             )
@@ -60,7 +60,7 @@ class UserController {
                     surname = userEntity.surname,
                     faculty = userEntity.faculty,
                     field = userEntity.field,
-                    year = userEntity.year.toString(),
+                    year = userEntity.year,
                     aboutMe = userEntity.aboutMe,
                     profileImg = userEntity.profileImg
             )
@@ -83,7 +83,7 @@ class UserController {
                             user.surname,
                             user.faculty,
                             user.field,
-                            user.year.toString(),
+                            user.year,
                             user.aboutMe,
                             user.profileImg)
                 }
